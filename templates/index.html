@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>News List</h1>
+<ul>
+    {% for news in news_list %}
+    <li>
+        <h2><a href="{{ url_for('main.news_detail', news_id=news.id) }}">{{ news.title }}</a></h2>
+        <p>{{ news.description }}</p>
+        <img src="{{ news.image_url }}" alt="News Image" style="max-width: 200px;">
+        <p>{{ news.pub_date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

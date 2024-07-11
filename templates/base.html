@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>News Site</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='js/delete.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="{{ url_for('main.index') }}">Home</a> |
+            <a href="{{ url_for('main.add_news') }}">Add News</a>
+        </nav>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

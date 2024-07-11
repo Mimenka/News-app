@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ news_item.title }}</h1>
+<p>{{ news_item.description }}</p>
+<img src="{{ news_item.image_url }}" alt="News Image">
+<p>{{ news_item.pub_date }}</p>
+
+<h2>Comments</h2>
+<ul>
+    {% for comment in comments %}
+    <li>{{ comment.body }} ({{ comment.pub_date }})</li>
+    {% endfor %}
+</ul>
+
+<form action="{{ url_for('main.add_comment', news_id=news_item.id) }}" method="post">
+    <textarea name="body" rows="4" cols="50" required></textarea>
+    <button type="submit">Add Comment</button>
+</form>
+{% endblock %}
